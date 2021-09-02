@@ -1,10 +1,10 @@
-package Selenium.Tests;
+package selenium.tests;
 
 
-import Selenium.Helpers.InvalidCheck;
-import Selenium.Steps.BookStoreSteps;
-import Selenium.Steps.LoginPageSteps;
-import Selenium.Steps.MainPageSteps;
+import selenium.helpers.InvalidCheck;
+import selenium.steps.BookStoreSteps;
+import selenium.steps.LoginPageSteps;
+import selenium.steps.MainPageSteps;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

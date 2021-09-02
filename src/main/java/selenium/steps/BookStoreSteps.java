@@ -1,6 +1,6 @@
-package Selenium.Steps;
+package selenium.steps;
 
-import Selenium.Models.BookStorePage;
+import selenium.pages.BookStorePage;
 import org.openqa.selenium.WebDriver;
 
 public class BookStoreSteps extends  BaseSteps{

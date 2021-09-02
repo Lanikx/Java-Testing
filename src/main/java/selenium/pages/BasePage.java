@@ -1,7 +1,6 @@
-package Selenium.Models;
+package selenium.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 class BasePage
 {
@@ -15,21 +14,8 @@ class BasePage
 
     }
 
-    public BasePage(WebDriver driver)
-    {
-        this.driver = driver;
-    }
-
-    void Click(WebElement elem)
-    {
-        elem.click();
-    }
-
-
     public boolean IsOnPage(String pageUrl)
     {
-        if (driver.getCurrentUrl().equals(pageUrl) )
-            return true;
-        return false;
+        return driver.getCurrentUrl().equals(pageUrl);
     }
 }

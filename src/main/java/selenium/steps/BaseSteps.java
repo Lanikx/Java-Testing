@@ -1,4 +1,4 @@
-package Selenium.Steps;
+package selenium.steps;
 
 import org.openqa.selenium.WebDriver;
 

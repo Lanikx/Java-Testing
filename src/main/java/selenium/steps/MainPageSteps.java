@@ -1,6 +1,6 @@
-package Selenium.Steps;
+package selenium.steps;
 
-import Selenium.Models.MainPage;
+import selenium.pages.MainPage;
 import org.openqa.selenium.WebDriver;
 
 

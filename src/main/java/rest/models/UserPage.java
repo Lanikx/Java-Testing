@@ -1,6 +1,6 @@
-package restTests.Models;
+package rest.models;
 
-public class UserModel {
+public class UserPage {
     public int id;
     String email;
     String firstName;

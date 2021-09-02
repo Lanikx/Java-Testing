@@ -1,4 +1,4 @@
-package restTests;
+package rest.tests;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;

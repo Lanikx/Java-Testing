@@ -1,6 +1,6 @@
-package Selenium.Steps;
+package selenium.steps;
 
-import Selenium.Models.LoginPage;
+import selenium.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPageSteps {
