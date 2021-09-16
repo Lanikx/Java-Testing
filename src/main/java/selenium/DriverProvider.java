@@ -1,4 +1,4 @@
-package selenium.tests;
+package selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +11,7 @@ public class DriverProvider {
         return _storedDriver.get();
     }
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
     public void start()
     {
@@ -22,6 +22,11 @@ public class DriverProvider {
         driver = _storedDriver.get();
     }
 
+    public boolean driverExists(){
+        if (driver != null)
+            return true;
+        return false;
+    }
 
     public void quit()
     {

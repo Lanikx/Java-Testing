@@ -1,21 +1,31 @@
 package selenium.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class BookStorePage extends BasePage{
 
+    final static String bookStoreUrl = "https://demoqa.com/books";
+
+    public BookStorePage()
+    {
+        super();
+    }
+
     public BookStorePage(WebDriver driver)
     {
-        super (driver, "https://demoqa.com/books");
+        super(driver);
     }
+
+    @FindBy(xpath = "//li/span[text() = 'Login']/..")
+    WebElement loginButton;
 
     private final String loginButtonId = "item-0";
 
-    public BookStorePage clickLoginPage(){
-        var button = driver.findElement(By.xpath("//li/span[text() = 'Login']/.."));
-        button.click();
-        return this;
+    public void clickLoginPage(){
+        loginButton.click();
+
     }
 
 

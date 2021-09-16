@@ -17,6 +17,7 @@ public class TestClass {
     final static String url = "https://reqres.in/";
 
 
+
     @BeforeAll
     public static void initSpec() {
         spec = new RequestSpecBuilder()
@@ -34,6 +35,7 @@ public class TestClass {
                 .get("/api/users?page=2")
                 .then()
                 .statusCode(200)
+
                 .assertThat()
                 .body("page",equalTo(2));
     }

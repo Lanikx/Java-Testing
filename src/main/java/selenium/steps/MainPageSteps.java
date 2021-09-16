@@ -1,57 +1,53 @@
 package selenium.steps;
 
 import selenium.pages.MainPage;
-import org.openqa.selenium.WebDriver;
 
 
-public class MainPageSteps extends  BaseSteps{
+public class MainPageSteps {
 
     MainPage mainpage;
 
-
-    public MainPageSteps(WebDriver driver){
-        super(driver);
-        mainpage = new MainPage(this.driver);
+    public MainPageSteps(MainPage mainPage){
+        super();
+        this.mainpage = mainPage;
     }
 
-
-
-    public MainPageSteps goToElementsPage()
+    public void goToElementsPage()
     {
         mainpage.ClickElementsButton();
-        return  this;
     }
 
 
-    public MainPageSteps goToFormsPage()
+    public void goToFormsPage()
     {
         mainpage.ClickFormsButton();
-        return  this;
     }
 
 
-    public MainPageSteps goToAlertsFramesWindowsPage()
+    public void goToAlertsFramesWindowsPage()
     {
         mainpage.ClickAlertsFrameWindowsButton();
-        return  this;
     }
 
-    public MainPageSteps goToWidgetsPage()
+    public void goToWidgetsPage()
     {
         mainpage.ClickWidgetsButton();
-        return  this;
+
     }
 
-
-    public MainPageSteps goToInteractionsPage()
+    public void goToInteractionsPage()
     {
         mainpage.ClickInteractionsButton();
-        return  this;
+
     }
 
-    public MainPageSteps goToBookStorePage()
+    public void goToBookStorePage()
     {
         mainpage.ClickBookStoreButton();
-        return  this;
+
+    }
+
+    public void Assert(){
+       assert mainpage.IsOnPage(mainpage.GetUrl());
     }
 }

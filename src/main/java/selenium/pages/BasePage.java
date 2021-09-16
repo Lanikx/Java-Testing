@@ -1,16 +1,22 @@
 package selenium.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import selenium.Base;
 
-class BasePage
+public class BasePage extends Base
 {
-    protected final WebDriver driver;
 
-    public BasePage(WebDriver driver, String pageUrl)
+    WebDriver driver;
+
+    public BasePage(WebDriver driver)
     {
+        PageFactory.initElements(driver, this);
         this.driver = driver;
-        if (!driver.getCurrentUrl().equals(pageUrl))
-        this.driver.get(pageUrl);
+    }
+
+    public BasePage()
+    {
 
     }
 

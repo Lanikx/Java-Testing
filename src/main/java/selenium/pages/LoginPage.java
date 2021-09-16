@@ -1,62 +1,65 @@
 package selenium.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import selenium.helpers.PropReader;
 
 public class LoginPage extends  BasePage
         {
 
+        static String loginPageUrl = PropReader.readLoginUrl();
+
+
+        @FindBy(id = "userName")
         WebElement userName;
+
+        @FindBy(id = "password")
         WebElement password;
+
+        @FindBy(id ="login")
         WebElement login;
 
 
-    public LoginPage(WebDriver driver)
+    public LoginPage()
     {
-        super (driver, "https://demoqa.com/login");
+        super ();
+    }
+
+            public LoginPage(WebDriver driver)
+            {
+                super(driver);
+            }
+
+
+    public void enterLoginData(String userName, String password){
+        if (IsOnPage(loginPageUrl))
+        {
+            EnterPassword(password);
+            EnterUserName(userName);
+        }
+    }
+
+    public void EnterPassword(String password){
+        if (IsOnPage(loginPageUrl))
+        {
+            this.password.sendKeys(password);
+        }
+    }
+
+    public void EnterUserName(String userName){
+        if (IsOnPage(loginPageUrl))
+        {
+            this.userName.sendKeys(userName);
+        }
     }
 
 
-    public LoginPage enterLoginData(String userName, String password)
+    public void PressLoginButton(){
+        if (IsOnPage(loginPageUrl))
         {
-        if (IsOnPage("https://demoqa.com/login"))
-        {
-        EnterPassword(password);
-        EnterUserName(userName);
-        }
-        return this;
-        }
-
-    public LoginPage EnterPassword(String password)
-        {
-        if (IsOnPage("https://demoqa.com/login"))
-        {
-        this.password = driver.findElement(By.id("password"));
-        this.password.sendKeys(password);
-        }
-        return this;
-        }
-
-    public LoginPage EnterUserName(String userName)
-        {
-        if (IsOnPage("https://demoqa.com/login"))
-        {
-        this.userName = driver.findElement(By.id("userName"));
-        this.userName.sendKeys(userName);
-        }
-        return this;
-        }
-
-
-    public LoginPage PressLoginButton()
-        {
-            this.login = driver.findElement(By.id("login"));
-            if (IsOnPage("https://demoqa.com/login"))
-            {
             login.click();
-            }
-            return this;
-            }
-
         }
+    }
+
+}

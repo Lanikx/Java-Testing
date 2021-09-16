@@ -1,20 +1,22 @@
 package selenium.steps;
 
 import selenium.pages.BookStorePage;
-import org.openqa.selenium.WebDriver;
 
-public class BookStoreSteps extends  BaseSteps{
+public class BookStoreSteps {
 
-    BookStorePage page;
+    final static String Url = "https://demoqa.com/books";
 
-    public BookStoreSteps(WebDriver driver) {
-        super(driver);
-        page = new BookStorePage(driver);
+    BookStorePage bookStorePage;
+
+    public BookStoreSteps(BookStorePage page) {
+        super();
+        bookStorePage = page;
     }
 
-    public BookStoreSteps goToLoginPage(){
-        page.clickLoginPage();
-        return this;
+
+    public void goToLoginPage(){
+        bookStorePage.clickLoginPage();
+
     }
 
 }

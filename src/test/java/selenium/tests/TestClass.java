@@ -1,10 +1,6 @@
 package selenium.tests;
 
 
-import selenium.helpers.InvalidCheck;
-import selenium.steps.BookStoreSteps;
-import selenium.steps.LoginPageSteps;
-import selenium.steps.MainPageSteps;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -17,40 +13,35 @@ public class TestClass extends  BaseTest{
     @Test
     public void MainPageElementsTest()
     {
-        MainPageSteps mainSteps = new MainPageSteps(provider.getDriver());
-        mainSteps.goToElementsPage();
-        assert (provider.getDriver().getCurrentUrl().equals("https://demoqa.com/elements"));
+        user.atMainPage.goToElementsPage();
+        user.atElementsPage.Assert();
     }
 
     @Test
     public void MainPageFormsTest()
     {
-        MainPageSteps mainSteps = new MainPageSteps(provider.getDriver());
-        mainSteps.goToFormsPage();
-        assert(provider.driver.getCurrentUrl().equals("https://demoqa.com/forms") );
+        user.atMainPage.goToFormsPage();
+        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/forms") );
     }
 
     @Test
     public void MainPageAlertsFramesWindowsTest()
     {
-        MainPageSteps mainSteps = new MainPageSteps(provider.getDriver());
-        mainSteps.goToAlertsFramesWindowsPage();
-        assert(provider.driver.getCurrentUrl().equals("https://demoqa.com/alertsWindows") );
+        user.atMainPage.goToAlertsFramesWindowsPage();
+        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/alertsWindows") );
     }
     @Test
     public void MainPageWidgetsTest()
     {
-        MainPageSteps mainSteps = new MainPageSteps(provider.getDriver());
-        mainSteps.goToWidgetsPage();
-        assert(provider.driver.getCurrentUrl().equals("https://demoqa.com/widgets"));
+        user.atMainPage.goToWidgetsPage();
+        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/widgets"));
     }
 
     @Test
     public void MainPageInteractionsTest()
     {
-        MainPageSteps mainSteps = new MainPageSteps(provider.getDriver());
-        mainSteps.goToInteractionsPage();
-        assert(provider.driver.getCurrentUrl().equals("https://demoqa.com/interaction"));
+        user.atMainPage.goToInteractionsPage();
+        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/interaction"));
 
     }
 
@@ -58,24 +49,22 @@ public class TestClass extends  BaseTest{
     @Test
     public void MainPageBookStoreTest()
     {
-        MainPageSteps mainSteps = new MainPageSteps(provider.getDriver());
-        mainSteps.goToBookStorePage();
-        assert(provider.driver.getCurrentUrl().equals("https://demoqa.com/books") );
+        user.atMainPage.goToBookStorePage();
+        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/books") );
     }
-    @Test
+  /*  @Test
     public void LoginPageNoInputTest()
     {
-        MainPageSteps mainPageSteps = new MainPageSteps(provider.getDriver());
+        MainPageSteps mainPageSteps = new MainPageSteps();
         mainPageSteps.goToBookStorePage();
-        BookStoreSteps bookStoreSteps = new BookStoreSteps(provider.getDriver());
+        BookStoreSteps bookStoreSteps = new BookStoreSteps();
         bookStoreSteps.goToLoginPage();
 
-        LoginPageSteps steps = new LoginPageSteps(provider.driver);
-        steps
-                .Login("", "");
+        LoginPageSteps steps = new LoginPageSteps();
+        steps.Login("", "");
 
-        var somethingIsInvalid = InvalidCheck.IsSomethingInvalid(provider.driver);
+        var somethingIsInvalid = InvalidCheck.IsSomethingInvalid(provider.getDriver());
         assert(somethingIsInvalid);
-    }
+    } */
 
 }

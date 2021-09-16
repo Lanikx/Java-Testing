@@ -1,22 +1,24 @@
 package selenium.steps;
 
 import selenium.pages.LoginPage;
-import org.openqa.selenium.WebDriver;
 
 public class LoginPageSteps {
-    WebDriver driver;
 
-    public LoginPageSteps(WebDriver driver)
+
+    LoginPage loginPage;
+
+    public LoginPageSteps(LoginPage loginPage)
     {
-        this.driver = driver;
+        super();
+        this.loginPage = loginPage;
     }
 
-    public LoginPageSteps Login(String login, String password)
+    public void Login(String login, String password)
     {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.enterLoginData(login, password);
         loginPage.PressLoginButton();
-        return  this;
+
     }
 
 
