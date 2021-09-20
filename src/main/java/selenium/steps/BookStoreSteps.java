@@ -18,5 +18,8 @@ public class BookStoreSteps {
         bookStorePage.clickLoginPage();
 
     }
+    public void Assert(){
+        assert bookStorePage.IsOnPage(bookStorePage.URL);
+    }
 
 }

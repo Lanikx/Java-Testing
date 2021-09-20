@@ -12,6 +12,6 @@ public class ElementsPageSteps {
     }
 
     public void Assert(){
-        assert elementsPage.IsOnPage(elementsPage.getUrl());
+        assert elementsPage.IsOnPage(elementsPage.URL);
     }
 }

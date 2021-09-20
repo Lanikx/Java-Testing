@@ -3,7 +3,8 @@ package selenium.pages;
 import org.openqa.selenium.WebDriver;
 
 public class ElementsPage extends BasePage {
-    final static String Url = "https://demoqa.com/elements";
+
+    public final static String URL = "https://demoqa.com/elements";
 
     public ElementsPage()
     {
@@ -15,7 +16,5 @@ public class ElementsPage extends BasePage {
         super(driver);
     }
 
-    public String getUrl() {
-        return Url;
-    }
+
 }

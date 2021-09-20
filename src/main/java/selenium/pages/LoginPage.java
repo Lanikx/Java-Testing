@@ -1,14 +1,16 @@
 package selenium.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import selenium.helpers.PropReader;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends  BasePage
         {
 
-        static String loginPageUrl = PropReader.readLoginUrl();
+        public final static String URL = "https://demoqa.com/login";
 
 
         @FindBy(id = "userName")
@@ -26,14 +28,14 @@ public class LoginPage extends  BasePage
         super ();
     }
 
-            public LoginPage(WebDriver driver)
-            {
-                super(driver);
-            }
+    public LoginPage(WebDriver driver)
+    {
+        super(driver);
+    }
 
 
     public void enterLoginData(String userName, String password){
-        if (IsOnPage(loginPageUrl))
+        if (IsOnPage(URL))
         {
             EnterPassword(password);
             EnterUserName(userName);
@@ -41,14 +43,14 @@ public class LoginPage extends  BasePage
     }
 
     public void EnterPassword(String password){
-        if (IsOnPage(loginPageUrl))
+        if (IsOnPage(URL))
         {
             this.password.sendKeys(password);
         }
     }
 
     public void EnterUserName(String userName){
-        if (IsOnPage(loginPageUrl))
+        if (IsOnPage(URL))
         {
             this.userName.sendKeys(userName);
         }
@@ -56,10 +58,15 @@ public class LoginPage extends  BasePage
 
 
     public void PressLoginButton(){
-        if (IsOnPage(loginPageUrl))
+        if (IsOnPage(URL))
         {
             login.click();
         }
+    }
+
+    public boolean FailedFieldExists(){
+        var wait = new WebDriverWait(driver, 5);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".form-control.is-invalid, .was-validated .form-control:invalid"))) != null;
     }
 
 }

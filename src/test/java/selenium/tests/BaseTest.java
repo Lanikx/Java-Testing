@@ -8,11 +8,12 @@ import selenium.PageProvider;
 import selenium.steps.User;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Properties;
 
 public class BaseTest extends Base {
 
     User user;
-
+    Properties URL;
 
     @BeforeAll
     static void setSettings(){
@@ -29,5 +30,6 @@ public class BaseTest extends Base {
     @AfterEach
     protected void finish(){
         user.pageProvider.Quit();
+
     }
 }

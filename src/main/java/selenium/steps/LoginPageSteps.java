@@ -21,6 +21,10 @@ public class LoginPageSteps {
 
     }
 
+    public void AssertLoginFailed(){
+        assert loginPage.FailedFieldExists();
+    }
+
 
 
 }

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends  BasePage {
 
-    public static final String mainPageUrl = "https://demoqa.com/";
+    public static final String URL = "https://demoqa.com/";
 
     @FindBy(xpath = "//h5[text() = 'Elements']")
     WebElement elementsButton;
@@ -37,42 +37,40 @@ public class MainPage extends  BasePage {
     public void ClickElementsButton()
     {
 
-        if (IsOnPage(mainPageUrl))
+        if (IsOnPage(URL))
             elementsButton.click();
     }
 
 
     public void ClickFormsButton()
     {
-        if (IsOnPage(mainPageUrl))
+        if (IsOnPage(URL))
             formsButton.click();
     }
 
     public void ClickAlertsFrameWindowsButton()
     {
-        if (IsOnPage(mainPageUrl))
+        if (IsOnPage(URL))
             alertsFrameWindowsButton.click();
     }
 
     public void ClickWidgetsButton()
     {
-        if (IsOnPage(mainPageUrl))
+        if (IsOnPage(URL))
             widgetsButton.click();
     }
 
     public void ClickInteractionsButton()
     {
-        if (IsOnPage(mainPageUrl))
+        if (IsOnPage(URL))
             interactionButton.click();
     }
 
     public void ClickBookStoreButton()
     {
-        if (IsOnPage(mainPageUrl))
+        if (IsOnPage(URL))
             bookStoreButton.click();
     }
 
-    public String GetUrl(){
-        return mainPageUrl;
-    }
+
 }

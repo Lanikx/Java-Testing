@@ -1,6 +1,11 @@
 package selenium.tests;
 
-
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -11,6 +16,11 @@ import org.junit.platform.commons.annotation.Testable;
 public class TestClass extends  BaseTest{
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Move to elements page")
+    @Tag("Page movement")
+    @Owner("Nikita Lapin")
+    @Description("Asserts that user can get to Elements page")
     public void MainPageElementsTest()
     {
         user.atMainPage.goToElementsPage();
@@ -18,53 +28,72 @@ public class TestClass extends  BaseTest{
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Move to elements page")
+    @Tag("Page movement")
+    @Owner("Nikita Lapin")
+    @Description("Asserts that user can get to Forms page")
     public void MainPageFormsTest()
     {
         user.atMainPage.goToFormsPage();
-        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/forms") );
+        user.atFormsPage.Assert();
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Move to elements page")
+    @Tag("Page movement")
+    @Owner("Nikita Lapin")
+    @Description("Asserts that user can get to Alerts&Frames page")
     public void MainPageAlertsFramesWindowsTest()
     {
         user.atMainPage.goToAlertsFramesWindowsPage();
-        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/alertsWindows") );
+        user.atAlertsFramesPage.Assert();
     }
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Move to elements page")
+    @Tag("Page movement")
+    @Owner("Nikita Lapin")
+    @Description("Asserts that user can get to Widgets page")
     public void MainPageWidgetsTest()
     {
         user.atMainPage.goToWidgetsPage();
-        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/widgets"));
+        user.atWidgetsPage.Assert();
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Move to elements page")
+    @Tag("Page movement")
+    @Owner("Nikita Lapin")
+    @Description("Asserts that user can get to Interactions page")
     public void MainPageInteractionsTest()
     {
         user.atMainPage.goToInteractionsPage();
-        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/interaction"));
-
+        user.atInteractionsPage.Assert();
     }
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Move to elements page")
+    @Tag("Page movement")
+    @Owner("Nikita Lapin")
+    @Description("Asserts that user can get to Book store page")
     public void MainPageBookStoreTest()
     {
         user.atMainPage.goToBookStorePage();
-        assert(provider.getDriver().getCurrentUrl().equals("https://demoqa.com/books") );
+        user.atBookStore.Assert();
     }
-  /*  @Test
+
+  @Test
     public void LoginPageNoInputTest()
     {
-        MainPageSteps mainPageSteps = new MainPageSteps();
-        mainPageSteps.goToBookStorePage();
-        BookStoreSteps bookStoreSteps = new BookStoreSteps();
-        bookStoreSteps.goToLoginPage();
-
-        LoginPageSteps steps = new LoginPageSteps();
-        steps.Login("", "");
-
-        var somethingIsInvalid = InvalidCheck.IsSomethingInvalid(provider.getDriver());
-        assert(somethingIsInvalid);
-    } */
+        user.atMainPage.goToBookStorePage();
+        user.atBookStore.goToLoginPage();
+        user.atLoginPage.Login("","");
+        user.atLoginPage.AssertLoginFailed();
+    }
 
 }

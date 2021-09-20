@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class BookStorePage extends BasePage{
 
-    final static String bookStoreUrl = "https://demoqa.com/books";
+    public final static String URL = "https://demoqa.com/books";
 
     public BookStorePage()
     {

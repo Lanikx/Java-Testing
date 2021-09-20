@@ -7,6 +7,9 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import selenium.helpers.PropReader;
+
+import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -15,6 +18,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class TestClass {
     private static RequestSpecification spec;
     final static String url = "https://reqres.in/";
+    static Properties apiUrlProperties;
 
 
 
@@ -26,38 +30,38 @@ public class TestClass {
                 .addFilter(new ResponseLoggingFilter())
                 .addFilter(new RequestLoggingFilter())
                 .build();
+        apiUrlProperties = PropReader.readApiStrings();
     }
+
     @Test
     public void GetUsersListTest(){
                 given()
                 .spec(spec)
                 .when()
-                .get("/api/users?page=2")
+                .get(apiUrlProperties.getProperty("user.list"),apiUrlProperties.getProperty("user.list.page.id"))
                 .then()
                 .statusCode(200)
-
                 .assertThat()
-                .body("page",equalTo(2));
+                .body("page",equalTo(apiUrlProperties.getProperty("user.list.page.id")));
     }
 
     @Test
-    public void GetUserTest(){
+    public void GetSingleUserTest(){
         given()
                 .spec(spec)
                 .when()
-                .get("api/users/2")
+                .get(apiUrlProperties.getProperty("user"), apiUrlProperties.getProperty("user.valid.id"))
                 .then()
                 .statusCode(200)
                 .assertThat()
-                .body("data.id", equalTo(2));
+                .body("data.id",  equalTo(Integer.parseInt(apiUrlProperties.getProperty("user.valid.id"))), "data.email", equalTo("janet.weaver@reqres.in"), "data.first_name", equalTo("Janet"), "data.last_name", equalTo("Weaver"));
     }
 
     @Test
     public void GetUserNotFoundTest(){
         given()
                 .spec(spec)
-
-                .get("api/users/23")
+                .get(apiUrlProperties.getProperty("user"), apiUrlProperties.getProperty("user.invalid.id"))
                 .then()
                 .assertThat()
                 .statusCode(404);
@@ -76,7 +80,7 @@ public class TestClass {
                         )
 
                .when()
-               .post("/api/users")
+               .post(apiUrlProperties.getProperty("user.post"))
                .then()
                .assertThat()
                .statusCode(201);
@@ -92,7 +96,7 @@ public class TestClass {
                         "\"password\":\"cityslicka\"\n" +
                         "}")
                 .when()
-                .post("/api/login")
+                .post(apiUrlProperties.getProperty("login"))
                 .then()
                 .assertThat()
                 .body("token", equalTo("QpwL5tke4Pnpja7X4"));

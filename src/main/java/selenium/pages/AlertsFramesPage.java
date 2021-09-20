@@ -2,14 +2,16 @@ package selenium.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class AlertsFramesPage {
+public class AlertsFramesPage extends BasePage{
 
-    public MainPage()
+    public final static String URL = "https://demoqa.com/alertsWindows";
+
+    public AlertsFramesPage()
     {
         super ();
     }
 
-    public MainPage(WebDriver driver)
+    public AlertsFramesPage(WebDriver driver)
     {
         super(driver);
 
