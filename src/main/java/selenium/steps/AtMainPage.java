@@ -4,11 +4,11 @@ import io.qameta.allure.Step;
 import selenium.pages.MainPage;
 
 
-public class MainPageSteps {
+public class AtMainPage {
 
     MainPage mainpage;
 
-    public MainPageSteps(MainPage mainPage){
+    public AtMainPage(MainPage mainPage){
         super();
         this.mainpage = mainPage;
     }
@@ -16,40 +16,45 @@ public class MainPageSteps {
     @Step
     public void goToElementsPage()
     {
-        mainpage.ClickElementsButton();
+        mainpage.CloseAd();
+        mainpage.clickElementsButton();
+
     }
 
     @Step
     public void goToFormsPage()
     {
-        mainpage.ClickFormsButton();
+        mainpage.CloseAd();
+        mainpage.clickFormsButton();
     }
 
     @Step
     public void goToAlertsFramesWindowsPage()
     {
-        mainpage.ClickAlertsFrameWindowsButton();
+        mainpage.CloseAd();
+        mainpage.clickAlertsFrameWindowsButton();
     }
     @Step
     public void goToWidgetsPage()
     {
-        mainpage.ClickWidgetsButton();
-
+        mainpage.CloseAd();
+        mainpage.clickWidgetsButton();
     }
     @Step
     public void goToInteractionsPage()
     {
-        mainpage.ClickInteractionsButton();
-
+        mainpage.CloseAd();
+        mainpage.clickInteractionsButton();
     }
     @Step
     public void goToBookStorePage()
     {
-        mainpage.ClickBookStoreButton();
-
+        mainpage.scrollPageDown();
+        mainpage.CloseAd();
+        mainpage.clickBookStoreButton();
     }
     @Step
-    public void Assert(){
+    public void confirmAtMainPage(){
        assert mainpage.IsOnPage(mainpage.URL);
     }
 }

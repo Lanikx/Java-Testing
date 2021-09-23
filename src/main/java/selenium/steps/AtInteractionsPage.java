@@ -1,16 +1,19 @@
 package selenium.steps;
 
+import io.qameta.allure.Step;
 import selenium.pages.InteractionsPage;
 
-public class InteractionsSteps {
+public class AtInteractionsPage {
 
     InteractionsPage interactionsPage;
 
-    public InteractionsSteps(InteractionsPage interactionsPage){
+    public AtInteractionsPage(InteractionsPage interactionsPage){
         super();
         this.interactionsPage = interactionsPage;
     }
-    public void Assert(){
+
+    @Step
+    public void confirmAtInteractionsPage(){
         assert interactionsPage.IsOnPage(interactionsPage.URL);
     }
 }

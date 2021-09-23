@@ -1,27 +1,30 @@
 package selenium.steps;
 
+import io.qameta.allure.Step;
 import selenium.pages.LoginPage;
 
-public class LoginPageSteps {
+public class AtLoginPage {
 
 
     LoginPage loginPage;
 
-    public LoginPageSteps(LoginPage loginPage)
+    public AtLoginPage(LoginPage loginPage)
     {
         super();
         this.loginPage = loginPage;
     }
 
+    @Step
     public void Login(String login, String password)
     {
-        LoginPage loginPage = new LoginPage();
-        loginPage.enterLoginData(login, password);
+        loginPage.EnterPassword(password);
+        loginPage.EnterUserName(login);
         loginPage.PressLoginButton();
 
     }
 
-    public void AssertLoginFailed(){
+    @Step
+    public void assertLoginFailed(){
         assert loginPage.FailedFieldExists();
     }
 

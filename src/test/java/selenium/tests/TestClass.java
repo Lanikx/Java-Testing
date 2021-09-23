@@ -1,11 +1,5 @@
 package selenium.tests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.junit4.DisplayName;
-import io.qameta.allure.junit4.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -16,84 +10,55 @@ import org.junit.platform.commons.annotation.Testable;
 public class TestClass extends  BaseTest{
 
     @Test
-    @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Move to elements page")
-    @Tag("Page movement")
-    @Owner("Nikita Lapin")
-    @Description("Asserts that user can get to Elements page")
-    public void MainPageElementsTest()
+    public void UserCanGetToElementsPageTest()
     {
         user.atMainPage.goToElementsPage();
-        user.atElementsPage.Assert();
+        user.atElementsPage.confirmAtElementsPage();
     }
 
     @Test
-    @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Move to elements page")
-    @Tag("Page movement")
-    @Owner("Nikita Lapin")
-    @Description("Asserts that user can get to Forms page")
-    public void MainPageFormsTest()
+    public void UserCanGetToFormsPageTest()
     {
         user.atMainPage.goToFormsPage();
-        user.atFormsPage.Assert();
+        user.atFormsPage.confirmAtFormsPage();
     }
 
     @Test
-    @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Move to elements page")
-    @Tag("Page movement")
-    @Owner("Nikita Lapin")
-    @Description("Asserts that user can get to Alerts&Frames page")
-    public void MainPageAlertsFramesWindowsTest()
+    public void UserCanGetToAlertsFramesWindowsTest()
     {
         user.atMainPage.goToAlertsFramesWindowsPage();
-        user.atAlertsFramesPage.Assert();
+        user.atAlertsFramesPage.confirmAtAlertsFramesPage();
     }
     @Test
-    @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Move to elements page")
-    @Tag("Page movement")
-    @Owner("Nikita Lapin")
-    @Description("Asserts that user can get to Widgets page")
-    public void MainPageWidgetsTest()
+    public void UserCanGetToWidgetsTest()
     {
         user.atMainPage.goToWidgetsPage();
-        user.atWidgetsPage.Assert();
+        user.atWidgetsPage.confirmAtWidgetsPage();
     }
 
     @Test
-    @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Move to elements page")
-    @Tag("Page movement")
-    @Owner("Nikita Lapin")
-    @Description("Asserts that user can get to Interactions page")
-    public void MainPageInteractionsTest()
+
+    public void UserCanGetToInteractionsTest()
     {
         user.atMainPage.goToInteractionsPage();
-        user.atInteractionsPage.Assert();
+        user.atInteractionsPage.confirmAtInteractionsPage();
     }
 
 
     @Test
-    @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Move to elements page")
-    @Tag("Page movement")
-    @Owner("Nikita Lapin")
-    @Description("Asserts that user can get to Book store page")
-    public void MainPageBookStoreTest()
+    public void UserCanGetToBookStoreTest()
     {
         user.atMainPage.goToBookStorePage();
-        user.atBookStore.Assert();
+        user.atBookStore.confirmAtBookStorePage();
     }
 
   @Test
-    public void LoginPageNoInputTest()
+    public void LoginPageLoginWithNoInputTest()
     {
         user.atMainPage.goToBookStorePage();
         user.atBookStore.goToLoginPage();
         user.atLoginPage.Login("","");
-        user.atLoginPage.AssertLoginFailed();
+        user.atLoginPage.assertLoginFailed();
     }
 
 }

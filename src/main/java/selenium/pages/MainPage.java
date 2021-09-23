@@ -1,5 +1,6 @@
 package selenium.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,18 +10,18 @@ public class MainPage extends  BasePage {
     public static final String URL = "https://demoqa.com/";
 
     @FindBy(xpath = "//h5[text() = 'Elements']")
-    WebElement elementsButton;
+    private WebElement elementsButton;
 
     @FindBy(xpath = "//h5[text() = 'Forms']")
-    WebElement formsButton;
+    private WebElement formsButton;
     @FindBy(xpath = "//h5[text() = 'Alerts, Frame & Windows']")
-    WebElement alertsFrameWindowsButton;
+    private WebElement alertsFrameWindowsButton;
     @FindBy(xpath = "//h5[text() = 'Widgets']")
-    WebElement widgetsButton;
+    private WebElement widgetsButton;
     @FindBy(xpath = "//h5[text() = 'Interactions']")
-    WebElement interactionButton;
+    private WebElement interactionButton;
     @FindBy(xpath = "//h5[text() = 'Book Store Application']")
-    WebElement bookStoreButton;
+    private WebElement bookStoreButton;
 
 
     public MainPage()
@@ -34,43 +35,40 @@ public class MainPage extends  BasePage {
 
     }
 
-    public void ClickElementsButton()
+    public void clickElementsButton()
     {
-
-        if (IsOnPage(URL))
             elementsButton.click();
     }
 
 
-    public void ClickFormsButton()
+    public void clickFormsButton()
     {
-        if (IsOnPage(URL))
             formsButton.click();
     }
 
-    public void ClickAlertsFrameWindowsButton()
+    public void clickAlertsFrameWindowsButton()
     {
-        if (IsOnPage(URL))
             alertsFrameWindowsButton.click();
     }
 
-    public void ClickWidgetsButton()
+    public void clickWidgetsButton()
     {
-        if (IsOnPage(URL))
             widgetsButton.click();
     }
 
-    public void ClickInteractionsButton()
+    public void clickInteractionsButton()
     {
-        if (IsOnPage(URL))
             interactionButton.click();
     }
 
-    public void ClickBookStoreButton()
+    public void clickBookStoreButton()
     {
-        if (IsOnPage(URL))
             bookStoreButton.click();
     }
 
+    public void scrollPageDown(){
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("window.scrollBy(0,350)", "");
+    }
 
 }

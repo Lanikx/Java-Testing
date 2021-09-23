@@ -14,13 +14,13 @@ public class LoginPage extends  BasePage
 
 
         @FindBy(id = "userName")
-        WebElement userName;
+        private WebElement userName;
 
         @FindBy(id = "password")
-        WebElement password;
+        private WebElement password;
 
         @FindBy(id ="login")
-        WebElement login;
+        private WebElement login;
 
 
     public LoginPage()
@@ -28,40 +28,25 @@ public class LoginPage extends  BasePage
         super ();
     }
 
-    public LoginPage(WebDriver driver)
-    {
-        super(driver);
-    }
+            public LoginPage(WebDriver webDriver)
+            {
+                super (webDriver);
 
-
-    public void enterLoginData(String userName, String password){
-        if (IsOnPage(URL))
-        {
-            EnterPassword(password);
-            EnterUserName(userName);
-        }
-    }
+            }
 
     public void EnterPassword(String password){
-        if (IsOnPage(URL))
-        {
+
             this.password.sendKeys(password);
-        }
+
     }
 
     public void EnterUserName(String userName){
-        if (IsOnPage(URL))
-        {
             this.userName.sendKeys(userName);
-        }
     }
 
 
     public void PressLoginButton(){
-        if (IsOnPage(URL))
-        {
             login.click();
-        }
     }
 
     public boolean FailedFieldExists(){

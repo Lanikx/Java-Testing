@@ -54,7 +54,10 @@ public class TestClass {
                 .then()
                 .statusCode(200)
                 .assertThat()
-                .body("data.id",  equalTo(Integer.parseInt(apiUrlProperties.getProperty("user.valid.id"))), "data.email", equalTo("janet.weaver@reqres.in"), "data.first_name", equalTo("Janet"), "data.last_name", equalTo("Weaver"));
+                .body("data.id",  equalTo(Integer.parseInt(apiUrlProperties.getProperty("user.valid.id"))),
+                        "data.email", equalTo(apiUrlProperties.getProperty("user.valid.email")),
+                        "data.first_name", equalTo(apiUrlProperties.getProperty("user.valid.firstname")),
+                        "data.last_name", equalTo(apiUrlProperties.getProperty("user.valid.lastname")));
     }
 
     @Test

@@ -2,10 +2,7 @@ package selenium;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import selenium.pages.BasePage;
-import selenium.pages.MainPage;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -13,24 +10,20 @@ import java.lang.reflect.InvocationTargetException;
 
 public class PageProvider {
 
-    private WebDriver _driver;
+    DriverProvider provider;
 
 
-    public void Quit(){
-        _driver.quit();
+    public void quit(){
+        provider.quit();
     }
 
     public WebDriver setDriver()
     {
-        if(_driver == null)
+        if(provider == null)
         {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            options.addArguments("disable-gpu");
-            _driver = new ChromeDriver(options);
-            _driver.get(MainPage.URL);
+            provider = new DriverProvider();
         }
-        return _driver;
+        return provider.getDriver();
     }
 
 

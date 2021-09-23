@@ -10,7 +10,7 @@ public class PropReader {
 
 
     public static Properties readApiStrings() {
-        try (InputStream input = new FileInputStream("E:\\itech\\Java-Testing\\src\\main\\resources\\apistrings.properties")) {
+        try (InputStream input = new FileInputStream("./src/main/resources/apistrings.properties")) {
             Properties prop = new Properties();
             prop.load(input);
             return prop;

@@ -29,7 +29,7 @@ public class BaseTest extends Base {
 
     @AfterEach
     protected void finish(){
-        user.pageProvider.Quit();
+        user.pageProvider.quit();
 
     }
 }

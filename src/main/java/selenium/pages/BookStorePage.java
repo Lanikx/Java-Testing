@@ -19,7 +19,7 @@ public class BookStorePage extends BasePage{
     }
 
     @FindBy(xpath = "//li/span[text() = 'Login']/..")
-    WebElement loginButton;
+    private WebElement loginButton;
 
     private final String loginButtonId = "item-0";
 
