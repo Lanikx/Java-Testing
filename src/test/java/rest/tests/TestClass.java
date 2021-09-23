@@ -7,7 +7,9 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import selenium.helpers.PropReader;
+import rest.helpers.PropReader;
+import rest.models.UserData;
+import rest.models.UserModel;
 
 import java.util.Properties;
 
@@ -45,7 +47,7 @@ public class TestClass {
                 .body("page",equalTo(apiUrlProperties.getProperty("user.list.page.id")));
     }
 
-    @Test
+   /* @Test  Origin
     public void GetSingleUserTest(){
         given()
                 .spec(spec)
@@ -58,6 +60,21 @@ public class TestClass {
                         "data.email", equalTo(apiUrlProperties.getProperty("user.valid.email")),
                         "data.first_name", equalTo(apiUrlProperties.getProperty("user.valid.firstname")),
                         "data.last_name", equalTo(apiUrlProperties.getProperty("user.valid.lastname")));
+    } */
+
+    @Test
+    public void GetSingleUserTest(){
+        var model =
+        given()
+                .spec(spec)
+                .when()
+                .get(apiUrlProperties.getProperty("user"), apiUrlProperties.getProperty("user.valid.id"))
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
+                .as(UserData.class);
+                assert (model.getData().equals(new UserModel().readUser()));
     }
 
     @Test

@@ -37,7 +37,6 @@ public class TestClass extends  BaseTest{
     }
 
     @Test
-
     public void UserCanGetToInteractionsTest()
     {
         user.atMainPage.goToInteractionsPage();

@@ -1,5 +1,6 @@
 package selenium.tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +19,7 @@ public class BaseTest extends Base {
     @BeforeAll
     static void setSettings(){
         System.setProperty("webdriver.chrome.driver", "E:/chromedriver.exe");
-
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach

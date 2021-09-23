@@ -1,4 +1,4 @@
-package selenium.helpers;
+package rest.helpers;
 
 import java.io.FileInputStream;
 import java.io.IOException;
